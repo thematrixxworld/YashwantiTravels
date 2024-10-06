@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'YashwantiTravels';
+ // Property to manage the state of the sidebar
+ isSidebarOpen: boolean = false;
+
+ // Method to toggle the sidebar open/close
+ toggleSidebar() {
+   this.isSidebarOpen = !this.isSidebarOpen; // Toggle the boolean value
+ }
 }

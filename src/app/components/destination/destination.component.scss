@@ -1,0 +1,93 @@
+/* destination.component.css */
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #f0f4f8; /* Light background for contrast */
+    font-family: 'Arial', sans-serif; /* Clean font */
+  }
+  
+  .container {
+    max-width: 80%; /* Maximum width for larger screens */
+    width: 100%; /* Full width */
+    margin: 40px auto; /* Centering the container with some top margin */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* White background for the form */
+  }
+  
+  .title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2rem; /* Larger title */
+    font-weight: bold; /* Bold title */
+  }
+  
+  .trip-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between; /* Align items horizontally */
+    margin-bottom: 20px; /* Space between rows */
+  }
+  
+  .form-group {
+    flex: 1; /* Equal width for all form groups */
+    margin-right: 15px; /* Space between form groups */
+  }
+  
+  .form-group:last-child {
+    margin-right: 0; /* Remove margin for the last group */
+  }
+  
+  label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    display: block; /* Ensures the label is displayed above the input */
+    color: #555; /* Darker color for better readability */
+  }
+  
+  .input-wrapper {
+    display: flex; /* Make the input and label align in a row */
+    flex-direction: column; /* Ensure label and input stack vertically */
+  }
+  
+  .form-control {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%; /* Ensure inputs take full width of the parent */
+    font-size: 1rem; /* Font size for inputs */
+    transition: border-color 0.3s; /* Smooth border color transition */
+  }
+  
+  .form-control:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  .btn {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem; /* Font size for button */
+  }
+  
+  .btn-submit {
+    background-color: #28a745; /* Green */
+    width: 100%; /* Full width */
+  }
+  
+  .btn-submit:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  

@@ -1,0 +1,23 @@
+<!-- trip-details-dialog.component.html -->
+<h2 class="mat-dialog-title">Trip Confirmation</h2>
+<div mat-dialog-content>
+  <div class="trip-details">
+    <h4>Trip Details:</h4>
+    <p><strong>From:</strong> {{ data.from }}</p>
+    <p><strong>To:</strong> {{ data.to }}</p>
+    <p><strong>Trip Duration:</strong> {{ data.tripDuration }}</p>
+    <p><strong>Departure Date:</strong> {{ data.departureDate }}</p>
+    <p><strong>Return Date:</strong> {{ data.returnDate }}</p>
+  </div>
+
+  <div class="driver-details">
+    <h4>Driver Details:</h4>
+    <p><strong>Driver Name:</strong> {{ data.driverName }}</p>
+    <p><strong>Car Number:</strong> {{ data.carNumber }}</p>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button class="cancel-button" (click)="onCancel()">Cancel Trip</button>
+  <button mat-button color="primary" class="confirm-button" (click)="onConfirm()">Confirm Trip</button>
+</div>

@@ -1,0 +1,192 @@
+// side-bar.component.scss
+$borderRadius: 10px;
+
+// Import the math module from Sass for mathematical operations
+@use 'sass:math';
+
+// Define a spacer variable for consistent spacing
+$spacer: 1rem;
+
+// Define the primary color for the theme
+$primary: #406ff3;
+
+// Define the text color used throughout the design
+$text: #6a778e;
+
+// Define the height for links, based on the spacer value
+$linkHeight: $spacer * 3.5;
+
+// Define a timing variable for transitions
+$timing: 250ms;
+
+// Define a transition style for smooth effects
+$transition: $timing ease all;
+
+// Adjust the spacer value if needed (can be changed for design)
+$spacer: 10px;
+
+// Define a color for borders, using a semi-transparent black
+$borderColor: rgba(0, 0, 0, 0.2);
+
+// Define a color for shadows, using a semi-transparent black
+$shadowColor: rgba(0, 0, 0, 0.15);
+
+// Create a mixin for a gooey animation effect
+@mixin gooeyEffect($i) {
+  // Define keyframes for the gooey effect animation
+  @keyframes gooeyEffect-#{$i} {
+    0% {
+      transform: scale(1, 1); // Original size
+    }
+    50% {
+      transform: scale(0.5, 1.5); // Stretch effect
+    }
+    100% {
+      transform: scale(1, 1); // Return to original size
+    }
+  }
+}
+
+// Import a Google font (Open Sans) for styling text
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
+// Style the body of the webpage
+body {
+  background: #eaeef6; // Light gray background color
+  font-family: 'Open Sans', sans-serif; // Use the imported font
+}
+
+// Style for the navbar
+.navbar {
+  $ref: &; // Reference to the current selector (navbar)
+  position: fixed; // Fix the navbar at the top of the viewport
+  top: 10%; // Space from the top of the viewport
+  background: #fff; // Set the background color to white
+  align-content: center; // Center align content within the navbar
+  align-items: center; // Vertically align items in the center
+  z-index: 1000; // Ensure the navbar is above other elements
+  padding: $spacer 0; // Add padding above and below based on spacer variable
+  box-shadow: 0 4px 20px $shadowColor; // Add a shadow effect below the navbar
+  height: auto; // Allow the height to adjust based on the content
+
+  // Border styling: left, right, and bottom borders only
+  border-left: 2px solid $borderColor; // Left border
+  border-right: 2px solid $borderColor; // Right border
+  border-bottom: 2px solid $borderColor; // Bottom border
+
+  // Set rounded corners for the bottom of the navbar
+  border-radius: 0 0 8px 8px; // Round the bottom corners
+
+  // Define transition effects for box-shadow
+  transition: box-shadow 0.3s ease; // Smooth transition for shadow effect
+
+  // Optional: Add a hover effect for the navbar
+  &:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); // Darker shadow on hover
+  }
+
+  // Style for the links inside the navbar
+  &__link {
+    position: relative; // Positioning context for child elements
+    display: flex; // Use flexbox layout
+    align-items: center; // Vertically center the link content
+    height: $linkHeight; // Set the height based on link height variable
+    width: $spacer * 4; // Set width based on spacer variable
+    font-size: 1.3rem; // Set font size for the link
+    color: $text; // Set text color
+    transition: $transition; // Apply transition effects
+
+    // Span element inside the link for tooltip effect
+    span {
+      position: absolute; // Position it absolutely within the link
+      left: 100%; // Place it to the right of the link
+      transform: translate(-($spacer * 3)); // Adjust position slightly left
+      margin-left: 1rem; // Add margin for spacing
+      opacity: 0; // Start hidden
+      pointer-events: none; // Prevent it from interfering with mouse events
+      color: $primary; // Set color to primary color
+      background: #fff; // Set background to white
+      padding: $spacer * 0.75; // Add padding
+      transition: $transition; // Apply transition effects
+      border-radius: $borderRadius * 1.75; // Round corners of the span
+    }
+
+    // Hover effect for links
+    &:hover {
+      color: #fff; // Change text color on hover
+    }
+
+    // Show the span element when hovered or focused
+    .navbar:not(:hover) &:focus,
+    &:hover {
+      span {
+        opacity: 1; // Make it visible
+        transform: translate(0); // Reset position to original
+      }
+    }
+  }
+
+  // Style for the menu within the navbar
+  &__menu {
+    position: relative; // Positioning context for items
+    list-style-type: none; // Remove default list styling
+  }
+
+  // Style for individual items in the menu
+  &__item {
+    // Special styling for the last item in the menu
+    &:last-child {
+      &:before {
+        content: ''; // Create an empty content box
+        position: absolute; // Position it absolutely
+        opacity: 0; // Start hidden
+        z-index: -1; // Send it behind other elements
+        top: 0; // Align to the top
+        left: $spacer; // Align to the left with some space
+        width: $linkHeight; // Set width based on link height
+        height: $linkHeight; // Set height based on link height
+        background: $primary; // Set background color to primary
+        border-radius: $borderRadius * 1.75; // Round corners
+        transition: $timing cubic-bezier(1, 0.2, 0.1, 1.2) all; // Smooth transition for effects
+      }
+    }
+
+    // Loop through numbers 1 to 12 for dynamic styles
+    @for $i from 1 to 12 {
+      // Styling for the first child and last child
+      &:first-child:nth-last-child(#{$i}),
+      &:first-child:nth-last-child(#{$i}) ~ li {
+        // Show the before element on hover
+        &:hover {
+          ~ li:last-child:before {
+            opacity: 1; // Make it visible
+          }
+        }
+
+        // Show the before element for the last child on hover
+        &:last-child:hover:before {
+          opacity: 1; // Make it visible
+        }
+
+        // Loop through numbers to create effects on hover
+        @for $j from 1 to $i {
+          // Apply hover effects based on the current item
+          &:nth-child(#{$j}):hover {
+            ~ li:last-child:before {
+              @include gooeyEffect($j); // Apply gooey effect
+              top: math.div(100%, $i) * ($j - 1); // Position it based on item index
+              animation: gooeyEffect-#{$j} $timing 1; // Trigger the animation
+            }
+          }
+        }
+
+        // Show the last child's before element on hover
+        &:last-child:hover:before {
+          @include gooeyEffect($i); // Apply gooey effect
+          top: math.div(100%, $i) * ($i - 1); // Position it based on item index
+          animation: gooeyEffect-#{$i} $timing 1; // Trigger the animation
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+<!-- Updated Container Element -->
+<div class="container" [class.right-panel-active]="rightPanelActive" id="container">
+  <!-- Sign Up Form -->
+  <div class="form-container sign-up-container">
+    <form (ngSubmit)="onSignup()" #signupForm="ngForm">
+      <h1>Create Account</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span>or use your email for registration</span>
+
+    
+      <input
+        type="text"
+        placeholder="Name"
+        name="name" id="name"
+        [(ngModel)]="signupModel.name"
+        required
+      />
+      
+      <input
+        type="email"
+        placeholder="Email"
+        name="email"
+        id="name"
+        [(ngModel)]="signupModel.email"
+        required
+      />
+     
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        [(ngModel)]="signupModel.password"
+        required
+      />
+      <button type="submit" [disabled]="!signupForm.valid">Sign Up</button>
+    </form>
+  </div>
+
+  <!-- Sign In Form -->
+  <div class="form-container sign-in-container">
+    <form (ngSubmit)="onSignin()" #signinForm="ngForm">
+      <h1>Sign in</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span>or use your account</span>
+      <input
+        type="email"
+        placeholder="Email"
+        name="email"
+        [(ngModel)]="signinModel.email"
+        required
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        [(ngModel)]="signinModel.password"
+        required
+      />
+      <a href="#">Forgot your password?</a>
+      <button type="submit" [disabled]="!signinForm.valid">Sign In</button>
+    </form>
+  </div>
+
+  <!-- Overlay Container -->
+  <div class="overlay-container">
+    <div class="overlay">
+      <!-- Left Overlay Panel -->
+      <div class="overlay-panel overlay-left">
+        <h1>Welcome Back!</h1>
+        <p>To keep connected with <strong>The Matrix World</strong> please login with your admin account</p>
+        <button class="ghost" (click)="toggleForms('signIn')">Sign In</button>
+      </div>
+
+      <!-- Right Overlay Panel -->
+      <div class="overlay-panel overlay-right">
+        <h1>Hello, Friend!</h1>
+        <p>Only administrators are authorized to create accounts.</p>
+        <button class="ghost" (click)="toggleForms('signUp')">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>
+

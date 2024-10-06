@@ -1,0 +1,16 @@
+<div class="hero-slider">
+    <div class="slider-container" [ngStyle]="{ transform: 'translateX(-' + currentIndex * 100 + '%)' }">
+      <div class="slide" *ngFor="let image of images">
+        <img [src]="image" alt="Hero Image" />
+      </div>
+    </div>
+  
+    <!-- Dot navigation controls -->
+    <div class="bullets">
+      <span *ngFor="let image of images; let i = index" 
+            class="bullet" 
+            [class.active]="currentIndex === i" 
+            (click)="goToSlide(i)"></span>
+    </div>
+  </div>
+  

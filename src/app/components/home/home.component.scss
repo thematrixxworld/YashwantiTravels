@@ -1,0 +1,48 @@
+.hero-slider {
+    position: relative;
+    width: 100%; /* Full width */
+    height: 50vh; /* 30% of viewport height */
+    overflow: hidden; /* Hide overflow */
+  }
+  
+  .slider-container {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth transition */
+    height: 100%; /* Full height for the container */
+  }
+  
+  .slide {
+    min-width: 100%; /* Full width for each slide */
+    height: 100%; /* Full height for each slide */
+  }
+  
+  img {
+    width: 100%; /* Make images responsive */
+    height: 100%; /* Fill the container */
+    object-fit: cover; /* Maintain aspect ratio */
+  }
+  
+  .bullets {
+    display: flex;
+    justify-content: center; /* Center bullets */
+    margin-top: 10px; /* Space between images and bullets */
+    position: absolute; /* Positioning for visibility */
+    bottom: 10px; /* Positioning from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust position to the center */
+  }
+  
+  .bullet {
+    width: 12px; /* Increased width */
+    height: 12px; /* Increased height */
+    border-radius: 50%; /* Make bullets round */
+    background-color: rgba(255, 255, 255, 0.7); /* Inactive color with transparency */
+    margin: 0 5px; /* Space between bullets */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  .bullet.active {
+    background-color: #000000; /* Active color */
+  }
+  

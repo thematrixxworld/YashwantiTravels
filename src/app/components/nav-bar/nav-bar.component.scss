@@ -1,0 +1,187 @@
+//nav-bar.component.scss
+/* Navbar styles and hover styles starts */
+.navbar {
+    background-color: white;
+    font-family: 'Arbutus Slab';
+    font-size: 14px;
+    position: fixed;
+    transition: border-bottom-color 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border for depth */
+    z-index: 1000; /* Ensure navbar is on top */
+
+   
+
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #004d00;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover {
+        border-bottom-color: #004d00;
+
+        &:before {
+            transform: scaleX(1);
+        }
+    }
+}
+
+/* Brand or logo (image) styles and hover styles start */
+.navbar-expandable-toggler {
+    transition: transform 0.3s ease-in-out;
+    width: 50px;
+
+    
+    .navbar-toggler-icon{
+        height: 20px;
+        width: 20px;
+    }
+}
+
+@keyframes border-animation {
+    0% { border-color: #b3ffb3; }
+    25% { border-color: #66ff66; }
+    50% { border-color: #00cc00; }
+    75% { border-color: #006600; }
+    100% { border-color: #001a00; }
+}
+
+/* Navbar list (Home, About, Vision, Contact) styles and hover starts */
+.navbar-nav {
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-right: 15px;
+    position: relative;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    padding: 10px 15px; /* Add padding for clickable area */
+    border-radius: 5px; /* Slightly round corners */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Transition for background color */
+
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #000;
+        transition: width 0.5s ease-in-out;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        font-weight: bold;
+        background-color: rgba(0, 77, 0, 0.1); /* Light green background on hover */
+
+        &:before {
+            width: 100%;
+            animation: underline 0.6s linear;
+        }
+    }
+}
+
+@keyframes underline {
+    0% { left: 0; width: 0; }
+    25% { left: 0; width: 100%; }
+    50% { left: 100%; width: 0; }
+    75% { left: 0; width: 100%; }
+    100% { left: 0; width: 100%; }
+}
+
+/* Search box styles and hover styles starts */  
+.search-form input[type="text"]:hover,
+.search-form input[type="text"]:focus {
+    animation: border-animation 2s infinite;
+}
+
+.search-form input[type="text"]:hover::placeholder {
+    font-size: 14px;
+    transition: font-size 0.3s ease-in-out;
+}
+
+.search-wrapper {
+    position: relative;
+    align-items: center;
+}
+
+.search-button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    i {
+        color: #000;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+/* User profile and hover styles starts */
+.user-profile {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: auto;
+      margin-left: 10px;
+      transition: transform 0.3s ease;  // Smooth hover animation
+  
+      &:hover {
+        transform: scale(1.2);  // Increase image size by 20%
+      }
+    }
+
+}
+  
+
+/* Media query styles for 576 px size user window starts */  
+@media (max-width: 576px) {
+    .nav-item {
+        padding-left: 10%;
+    }
+
+    .dropdown {
+        padding-left: 8%;
+    }
+
+    .dropdown-menu.dropdown-menu-center {
+        left: 30% !important;
+        right: 0 !important;
+        transform: translateX(0) !important;
+
+    }
+}
+/* Media query styles for 576 px size user window ends */

@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+
+.dialog-container {
+    max-width: 600px; /* Maximum width for the dialog */
+    width: 100%; /* Full width */
+    padding: 30px; /* Increased padding for a spacious feel */
+    border-radius: 15px; /* More rounded corners for a modern look */
+    background-color: #fdfdfd; /* Light off-white background for a softer feel */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow for depth */
+}
+
+.mat-dialog-title {
+    text-align: center; /* Centering the title horizontally */
+    color: #333; /* Darker gray for better contrast */
+    font-size: 1.8rem; /* Slightly larger font for emphasis */
+    font-weight: bold; /* Bold title */
+    letter-spacing: 0.05rem; /* Slightly spaced letters for a refined look */
+    margin-top: 20px;
+}
+
+.mat-dialog-content {
+    margin-bottom: 30px; /* Space below content */
+    justify-content: center;
+}
+
+.trip-details, .driver-details {
+    margin-bottom: 20px; /* Space between details sections */
+    padding: 20px; /* Comfortable padding */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #eef2f7; /* Very light blue for sections */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Softer shadow */
+}
+
+.trip-details h4, .driver-details h4 {
+    font-weight: 600; /* Slightly bold for subheadings */
+    color: #555; /* Darker color for subheadings */
+    margin-bottom: 12px; /* Space below subheadings */
+}
+
+.mat-dialog-actions {
+    display: flex;
+    justify-content: space-between; /* Space between the buttons */
+    margin-top: 20px; /* Space above the buttons */
+}
+
+button.mat-button {
+    padding: 12px 30px; /* Comfortable button padding */
+    border-radius: 8px; /* More rounded buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+    font-size: 1.1rem; /* Font size for the buttons */
+    border: none; /* No border */
+}
+
+button.mat-button:hover {
+    transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+/* Primary (Confirm) button */
+button.mat-button.color-primary {
+    background-color: #28a745; /* Green color for the confirm button */
+    color: #fff; /* White text */
+}
+
+
+
+/* On mouse over effect: green for confirm, red for cancel */
+button.confirm-button:hover {
+    background-color: #28a745; /* Confirm button turns green on hover */
+}
+
+button.cancel-button:hover {
+    background-color: #dc3545; /* Cancel button turns red on hover */
+}

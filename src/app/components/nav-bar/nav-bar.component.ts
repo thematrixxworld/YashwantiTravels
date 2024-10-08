@@ -1,6 +1,5 @@
-//nav-bar.component.ts
 import { Dialog } from '@angular/cdk/dialog';
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter  } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router} from '@angular/router';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
@@ -13,10 +12,16 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 export class NavBarComponent {
 
   @Output() sidebarToggle = new EventEmitter<void>();
+  sidebarVisible = false;
 
+  // Method to emit the toggle event
   toggleSidebar() {
-    this.sidebarToggle.emit();
+    this.sidebarToggle.emit(); // Emit an event to notify the parent component
+    this.sidebarVisible = !this.sidebarVisible;
   }
+ 
+
+    
 
   constructor(public dialog:MatDialog){
 

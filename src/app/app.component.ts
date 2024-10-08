@@ -6,12 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'YashwantiTravels';
- // Property to manage the state of the sidebar
- isSidebarOpen: boolean = false;
+  sidebarVisible: boolean = false; // State variable to track sidebar visibility
 
- // Method to toggle the sidebar open/close
- toggleSidebar() {
-   this.isSidebarOpen = !this.isSidebarOpen; // Toggle the boolean value
- }
+  // Method to handle sidebar toggle
+  onToggleSidebar() {
+    this.sidebarVisible = !this.sidebarVisible; // Toggle the sidebar visibility
+  }
 }

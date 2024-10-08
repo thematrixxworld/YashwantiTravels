@@ -14,7 +14,7 @@ import feather from 'feather-icons';
 })
 // Create the SideBarComponent class that implements OnInit interface
 export class SideBarComponent implements OnInit {
-  
+ 
   // Constructor is a method that runs when the component is created
   constructor() { }
 
